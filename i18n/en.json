@@ -1,0 +1,8 @@
+{
+	"@metadata": {
+		"authors": [
+			"Alex Winkler"
+		]
+	},
+	"variableslua-desc": "Lua interface for [https://www.mediawiki.org/wiki/Extension:Variables Extension:Variables]"
+}

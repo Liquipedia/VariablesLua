@@ -1,0 +1,29 @@
+{
+	"name": "VariablesLua",
+	"version": "1.0.0",
+	"author": [
+		"[https://fo-nttax.de Alex Winkler]"
+	],
+	"url": "http://liquipedia.net/",
+	"descriptionmsg": "variableslua-desc",
+	"license-name": "MIT",
+	"type": "parserhook",
+	"requires": {
+		"MediaWiki": ">= 1.28.0"
+	},
+	"MessagesDirs": {
+		"VariablesLua": [
+			"i18n"
+		]
+	},
+	"AutoloadClasses": {
+		"Liquipedia\\VariablesLua\\Hooks": "VariablesLuaHooks.php",
+		"Liquipedia\\VariablesLua\\Scribunto_LuaVariablesLuaLibrary": "Scribunto_LuaVariablesLuaLibrary.php"
+	},
+	"Hooks": {
+		"ScribuntoExternalLibraries": [
+			"Liquipedia\\VariablesLua\\Hooks::onScribuntoExternalLibraries"
+		]
+	},
+	"manifest_version": 1
+}
