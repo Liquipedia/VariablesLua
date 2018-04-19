@@ -1,7 +1,7 @@
 VariablesLua
 ============
 
-This extension makes Extension:Variables work with Lua.
+This extension makes Extension:Variables work with Lua. See http://liquipedia.net/commons/Help:VariablesLua for more information.
 
 Installation
 ============
