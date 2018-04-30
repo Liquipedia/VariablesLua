@@ -4,5 +4,5 @@
 			"Alex Winkler"
 		]
 	},
-	"variableslua-desc": "Lua interface for [https://www.mediawiki.org/wiki/Extension:Variables Extension:Variables]"
+	"variableslua-desc": "Scribunto Lua interface for [https://www.mediawiki.org/wiki/Extension:Variables Extension:Variables]"
 }
