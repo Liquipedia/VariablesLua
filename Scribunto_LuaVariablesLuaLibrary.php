@@ -1,9 +1,11 @@
 <?php
 
 namespace Liquipedia\VariablesLua;
+
 use ExtVariables;
 
 class Scribunto_LuaVariablesLuaLibrary extends \Scribunto_LuaLibraryBase {
+
 	public function register() {
 		$lib = [
 			'var' => [ $this, 'fn_var' ],
@@ -13,7 +15,7 @@ class Scribunto_LuaVariablesLuaLibrary extends \Scribunto_LuaLibraryBase {
 			'varexists' => [ $this, 'fn_varexists' ],
 		];
 		return $this->getEngine()->registerInterface(
-			__DIR__ . '/mw.ext.VariablesLua.lua', $lib, []
+				__DIR__ . '/mw.ext.VariablesLua.lua', $lib, []
 		);
 	}
 
@@ -44,6 +46,11 @@ class Scribunto_LuaVariablesLuaLibrary extends \Scribunto_LuaLibraryBase {
 	public function fn_varexists() {
 		$params = func_get_args();
 		$parser = $this->getParser();
-		return [ ExtVariables::pf_varexists( $parser, ...$params ) ];
+		if ( method_exists( 'ExtVariables', 'pf_varexists' ) ) {
+			return [ ExtVariables::pf_varexists( $parser, ...$params ) ];
+		} else {
+			return [ ExtVariables::pfObj_varexists( $parser, $parser->getPreprocessor()->newFrame(), $params ) ];
+		}
 	}
+
 }
