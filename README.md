@@ -13,3 +13,30 @@ Installation
 Dependencies
 ============
 This extension requires Extension:Variables to be installed.
+
+Examples
+========
+This is how some example calls to the extension could look like in a Scribunto module
+```
+local p = {} -- p stands for package
+
+function p.get(frame)
+	local data = mw.ext.VariablesLua.var('variablename')
+	-- data now holds the value of the variable "variablename"
+	return data
+end
+
+function p.set(frame)
+	mw.ext.VariablesLua.vardefine('variablename', 'variablevalue')
+	-- The variable "variablename" now holds the value "variablevalue"
+end
+
+function p.setecho(frame)
+	local data = mw.ext.VariablesLua.vardefineecho('variablename', 'variablevalue')
+	-- The variable "variablename" now holds the value "variablevalue"
+	-- data now has the value "variablevalue"
+	return data
+end
+
+return p
+```
