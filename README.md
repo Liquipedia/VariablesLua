@@ -17,7 +17,7 @@ This extension requires Extension:Variables to be installed.
 Examples
 ========
 This is how some example calls to the extension could look like in a Scribunto module
-```
+```lua
 local p = {} -- p stands for package
 
 function p.get(frame)
