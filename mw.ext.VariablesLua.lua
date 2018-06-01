@@ -4,14 +4,14 @@ local php
 
 function VariablesLua.var( name, default )
 	libraryUtil.checkTypeMulti( 'var', 1, name, { 'string', 'number' } )
-	libraryUtil.checkTypeMulti( 'var', 2, default, { 'string', 'number', 'nil' }, true )
+	libraryUtil.checkTypeMulti( 'var', 2, default, { 'string', 'number', 'nil' } )
 	
 	return php.var( name, default )
 end
 
 function VariablesLua.var_final( name, default )
 	libraryUtil.checkTypeMulti( 'var_final', 1, name, { 'string', 'number' } )
-	libraryUtil.checkTypeMulti( 'var_final', 2, default, { 'string', 'number', 'nil' }, true )
+	libraryUtil.checkTypeMulti( 'var_final', 2, default, { 'string', 'number', 'nil' } )
 
 	return php.var_final( name, default )
 end
