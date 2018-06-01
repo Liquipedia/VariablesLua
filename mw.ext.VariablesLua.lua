@@ -5,7 +5,7 @@ local php
 function VariablesLua.var( name, default )
 	libraryUtil.checkTypeMulti( 'var', 1, name, { 'string', 'number' } )
 	libraryUtil.checkTypeMulti( 'var', 2, default, { 'string', 'number', 'nil' } )
-	
+
 	return php.var( name, default )
 end
 
@@ -19,20 +19,20 @@ end
 function VariablesLua.vardefine( name, value )
 	libraryUtil.checkTypeMulti( 'vardefine', 1, name, { 'string', 'number' } )
 	libraryUtil.checkTypeMulti( 'vardefine', 2, value, { 'string', 'number', 'nil' } )
-	
+
 	return php.vardefine( name, value )
 end
 
 function VariablesLua.vardefineecho( name, value )
 	libraryUtil.checkTypeMulti( 'vardefineecho', 1, name, { 'string', 'number' } )
 	libraryUtil.checkTypeMulti( 'vardefineecho', 2, value, { 'string', 'number', 'nil' } )
-	
+
 	return php.vardefineecho( name, value )
 end
 
 function VariablesLua.varexists( name )
 	libraryUtil.checkTypeMulti( 'varexists', 1, name, { 'string', 'number' } )
-	
+
 	return php.varexists( name )
 end
 
