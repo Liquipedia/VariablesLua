@@ -4,7 +4,7 @@
 	"author": [
 		"[https://fo-nttax.de Alex Winkler]"
 	],
-	"url": "https://github.com/Liquipedia/VariablesLua",
+	"url": "https://www.mediawiki.org/wiki/Extension:VariablesLua",
 	"descriptionmsg": "variableslua-desc",
 	"license-name": "MIT",
 	"type": "parserhook",
