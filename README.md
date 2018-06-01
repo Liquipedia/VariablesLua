@@ -1,7 +1,7 @@
 VariablesLua
 ============
 
-This extension makes Extension:Variables work with Scribunto Lua. See https://liquipedia.net/commons/Help:VariablesLua for more information.
+This extension makes Extension:Variables work with Scribunto Lua. See https://liquipedia.net/commons/Help:VariablesLua for more information. Functions return the word error if there is broken input. Lua tables and functions can not be stored into these variables.
 
 Installation
 ============

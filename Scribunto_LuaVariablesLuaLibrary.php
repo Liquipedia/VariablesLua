@@ -20,37 +20,71 @@ class Scribunto_LuaVariablesLuaLibrary extends \Scribunto_LuaLibraryBase {
 	}
 
 	public function fn_var() {
-		$params = func_get_args();
+		$params = $this->processParams( func_get_args() );
+		if ( $params === false ) {
+			return [ 'error' ];
+		}
 		$parser = $this->getParser();
 		return [ ExtVariables::pfObj_var( $parser, $parser->getPreprocessor()->newFrame(), $params ) ];
 	}
 
 	public function fn_var_final() {
-		$params = func_get_args();
+		$params = $this->processParams( func_get_args() );
+		if ( $params === false ) {
+			return [ 'error' ];
+		}
 		$parser = $this->getParser();
 		return [ ExtVariables::pf_var_final( $parser, ...$params ) ];
 	}
 
 	public function fn_vardefine() {
-		$params = func_get_args();
+		$params = $this->processParams( func_get_args() );
+		if ( $params === false ) {
+			return [ 'error' ];
+		}
 		$parser = $this->getParser();
 		return [ ExtVariables::pf_vardefine( $parser, ...$params ) ];
 	}
 
 	public function fn_vardefineecho() {
-		$params = func_get_args();
+		$params = $this->processParams( func_get_args() );
+		if ( $params === false ) {
+			return [ 'error' ];
+		}
 		$parser = $this->getParser();
 		return [ ExtVariables::pf_vardefineecho( $parser, ...$params ) ];
 	}
 
 	public function fn_varexists() {
-		$params = func_get_args();
+		$params = $this->processParams( func_get_args() );
+		if ( $params === false ) {
+			return [ 'error' ];
+		}
 		$parser = $this->getParser();
 		if ( method_exists( 'ExtVariables', 'pf_varexists' ) ) {
 			return [ ExtVariables::pf_varexists( $parser, ...$params ) ];
 		} else {
 			return [ ExtVariables::pfObj_varexists( $parser, $parser->getPreprocessor()->newFrame(), $params ) ];
 		}
+	}
+
+	private function processParams( $params ) {
+		$ret = [];
+		foreach ( $params as $key => $value ) {
+			if ( is_null( $value ) ) {
+				$value = 'null';
+			} elseif ( $value === true ) {
+				$value = 'true';
+			} elseif ( $value === false ) {
+				$value = 'false';
+			} elseif ( is_array( $value ) ) {
+				return false;
+			} elseif ( is_object( $value ) ) {
+				return false;
+			}
+			$ret[ $key ] = strval( $value );
+		}
+		return $ret;
 	}
 
 }
