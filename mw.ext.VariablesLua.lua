@@ -18,14 +18,14 @@ end
 
 function VariablesLua.vardefine( name, value )
 	libraryUtil.checkTypeMulti( 'vardefine', 1, name, { 'string', 'number' } )
-	libraryUtil.checkTypeMulti( 'vardefine', 2, value, { 'string', 'number' }, true )
+	libraryUtil.checkTypeMulti( 'vardefine', 2, value, { 'string', 'number', 'nil' } )
 	
 	return php.vardefine( name, value )
 end
 
 function VariablesLua.vardefineecho( name, value )
 	libraryUtil.checkTypeMulti( 'vardefineecho', 1, name, { 'string', 'number' } )
-	libraryUtil.checkTypeMulti( 'vardefineecho', 2, value, { 'string', 'number' }, true )
+	libraryUtil.checkTypeMulti( 'vardefineecho', 2, value, { 'string', 'number', 'nil' } )
 	
 	return php.vardefineecho( name, value )
 end
