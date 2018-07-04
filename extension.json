@@ -11,6 +11,7 @@
 	"requires": {
 		"MediaWiki": ">= 1.28.0",
 		"extensions": {
+			"Scribunto": "*",
 			"Variables": ">= 2.0"
 		}
 	},
