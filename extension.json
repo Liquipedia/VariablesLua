@@ -7,9 +7,12 @@
 	"url": "https://www.mediawiki.org/wiki/Extension:VariablesLua",
 	"descriptionmsg": "variableslua-desc",
 	"license-name": "MIT",
-	"type": "parserhook",
+	"type": "other",
 	"requires": {
-		"MediaWiki": ">= 1.28.0"
+		"MediaWiki": ">= 1.28.0",
+		"extensions": {
+			"Variables": ">= 2.0"
+		}
 	},
 	"MessagesDirs": {
 		"VariablesLua": [
