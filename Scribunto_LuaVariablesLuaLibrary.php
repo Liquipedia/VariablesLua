@@ -56,7 +56,7 @@ class Scribunto_LuaVariablesLuaLibrary extends \Scribunto_LuaLibraryBase {
 	
 	public function fn_var_table() {
 		$parser = $this->getParser();
-		return [ ExtVariables::get( $parser )->mVariables ];
+		return [ $parser->mExtVariables->mVariables ];
 	}
 
 }
