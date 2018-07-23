@@ -45,6 +45,10 @@ function VariablesLua.varexists( name )
 	return php.varexists( name )
 end
 
+function VariablesLua.var_table()
+	return php.var_table()
+end
+
 function VariablesLua.setupInterface( options )
 	-- Boilerplate
 	VariablesLua.setupInterface = nil
