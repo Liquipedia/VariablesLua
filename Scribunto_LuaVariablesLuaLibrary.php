@@ -53,7 +53,7 @@ class Scribunto_LuaVariablesLuaLibrary extends \Scribunto_LuaLibraryBase {
 			return [ ExtVariables::pfObj_varexists( $parser, $parser->getPreprocessor()->newFrame(), $params ) ];
 		}
 	}
-	
+
 	public function fn_var_table() {
 		$parser = $this->getParser();
 		return [ $parser->mExtVariables->mVariables ];
