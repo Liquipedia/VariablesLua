@@ -13,7 +13,6 @@ class Scribunto_LuaVariablesLuaLibrary extends \Scribunto_LuaLibraryBase {
 			'vardefine' => [ $this, 'fn_vardefine' ],
 			'vardefineecho' => [ $this, 'fn_vardefineecho' ],
 			'varexists' => [ $this, 'fn_varexists' ],
-			'var_table' => [ $this, 'fn_var_table' ],
 		];
 		return $this->getEngine()->registerInterface(
 				__DIR__ . '/mw.ext.VariablesLua.lua', $lib, []
@@ -52,11 +51,6 @@ class Scribunto_LuaVariablesLuaLibrary extends \Scribunto_LuaLibraryBase {
 		} else {
 			return [ ExtVariables::pfObj_varexists( $parser, $parser->getPreprocessor()->newFrame(), $params ) ];
 		}
-	}
-
-	public function fn_var_table() {
-		$parser = $this->getParser();
-		return [ $parser->mExtVariables->mVariables ];
 	}
 
 }
