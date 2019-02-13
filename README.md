@@ -12,7 +12,7 @@ Installation
 
 Dependencies
 ============
-This extension requires Extension:Variables to be installed.
+This extension requires Extension:Variables and Extension:Scribunto to be installed.
 
 Examples
 ========
