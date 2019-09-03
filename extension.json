@@ -1,6 +1,6 @@
 {
 	"name": "VariablesLua",
-	"version": "1.4.0",
+	"version": "1.4.1",
 	"author": [
 		"[https://fo-nttax.de Alex Winkler]"
 	],
@@ -20,9 +20,8 @@
 			"i18n"
 		]
 	},
-	"AutoloadClasses": {
-		"Liquipedia\\VariablesLua\\Hooks": "VariablesLuaHooks.php",
-		"Liquipedia\\VariablesLua\\Scribunto_LuaVariablesLuaLibrary": "Scribunto_LuaVariablesLuaLibrary.php"
+	"AutoloadNamespaces": {
+		"Liquipedia\\VariablesLua\\": "src/"
 	},
 	"Hooks": {
 		"ScribuntoExternalLibraries": [

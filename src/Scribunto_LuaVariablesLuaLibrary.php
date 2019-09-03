@@ -15,7 +15,7 @@ class Scribunto_LuaVariablesLuaLibrary extends \Scribunto_LuaLibraryBase {
 			'varexists' => [ $this, 'fn_varexists' ],
 		];
 		return $this->getEngine()->registerInterface(
-				__DIR__ . '/mw.ext.VariablesLua.lua', $lib, []
+				__DIR__ . '/../lua/mw.ext.VariablesLua.lua', $lib, []
 		);
 	}
 
@@ -46,10 +46,10 @@ class Scribunto_LuaVariablesLuaLibrary extends \Scribunto_LuaLibraryBase {
 	public function fn_varexists() {
 		$params = func_get_args();
 		$parser = $this->getParser();
-		if ( method_exists( 'ExtVariables', 'pf_varexists' ) ) {
-			return [ ExtVariables::pf_varexists( $parser, ...$params ) ];
-		} else {
+		if ( method_exists( 'ExtVariables', 'pfObj_varexists' ) ) {
 			return [ ExtVariables::pfObj_varexists( $parser, $parser->getPreprocessor()->newFrame(), $params ) ];
+		} else {
+			return [ ExtVariables::pf_varexists( $parser, ...$params ) ];
 		}
 	}
 
