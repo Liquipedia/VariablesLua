@@ -4,50 +4,52 @@ namespace Liquipedia\VariablesLua;
 
 use ExtVariables;
 
-class Scribunto_LuaVariablesLuaLibrary extends \Scribunto_LuaLibraryBase {
+class ScribuntoLuaLibrary extends \Scribunto_LuaLibraryBase {
 
 	public function register() {
 		$lib = [
-			'var' => [ $this, 'fn_var' ],
-			'var_final' => [ $this, 'fn_var_final' ],
-			'vardefine' => [ $this, 'fn_vardefine' ],
-			'vardefineecho' => [ $this, 'fn_vardefineecho' ],
-			'varexists' => [ $this, 'fn_varexists' ],
+			'var' => [ $this, 'fnVar' ],
+			'var_final' => [ $this, 'fnVarFinal' ],
+			'vardefine' => [ $this, 'fnVardefine' ],
+			'vardefineecho' => [ $this, 'fnVardefineecho' ],
+			'varexists' => [ $this, 'fnVarexists' ],
 		];
 		return $this->getEngine()->registerInterface(
 				__DIR__ . '/../lua/mw.ext.VariablesLua.lua', $lib, []
 		);
 	}
 
-	public function fn_var() {
+	public function fnVar() {
 		$params = func_get_args();
 		$parser = $this->getParser();
 		return [ ExtVariables::pfObj_var( $parser, $parser->getPreprocessor()->newFrame(), $params ) ];
 	}
 
-	public function fn_var_final() {
+	public function fnVarFinal() {
 		$params = func_get_args();
 		$parser = $this->getParser();
 		return [ ExtVariables::pf_var_final( $parser, ...$params ) ];
 	}
 
-	public function fn_vardefine() {
+	public function fnVardefine() {
 		$params = func_get_args();
 		$parser = $this->getParser();
 		return [ ExtVariables::pf_vardefine( $parser, ...$params ) ];
 	}
 
-	public function fn_vardefineecho() {
+	public function fnVardefineecho() {
 		$params = func_get_args();
 		$parser = $this->getParser();
 		return [ ExtVariables::pf_vardefineecho( $parser, ...$params ) ];
 	}
 
-	public function fn_varexists() {
+	public function fnVarexists() {
 		$params = func_get_args();
 		$parser = $this->getParser();
 		if ( method_exists( 'ExtVariables', 'pfObj_varexists' ) ) {
-			return [ ExtVariables::pfObj_varexists( $parser, $parser->getPreprocessor()->newFrame(), $params ) ];
+			return [ ExtVariables::pfObj_varexists(
+					$parser, $parser->getPreprocessor()->newFrame(), $params
+				) ];
 		} else {
 			return [ ExtVariables::pf_varexists( $parser, ...$params ) ];
 		}

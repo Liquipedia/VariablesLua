@@ -6,10 +6,13 @@ class Hooks {
 
 	/**
 	 * Register Lua Library
+	 * @param strin $engine
+	 * @param array &$extraLibraries
+	 * @return array
 	 */
 	public static function onScribuntoExternalLibraries( $engine, array &$extraLibraries ) {
 		if ( $engine === 'lua' ) {
-			$extraLibraries[ 'mw.ext.VariablesLua' ] = 'Liquipedia\\VariablesLua\\Scribunto_LuaVariablesLuaLibrary';
+			$extraLibraries[ 'mw.ext.VariablesLua' ] = ScribuntoLuaLibrary::class;
 		}
 		return true;
 	}

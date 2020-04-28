@@ -1,21 +1,20 @@
-VariablesLua
-============
+# VariablesLua
+![Code Style](https://github.com/Liquipedia/VariablesLua/workflows/Code%20Style/badge.svg)
 
 This extension makes Extension:Variables work with Scribunto Lua. See https://liquipedia.net/commons/Help:VariablesLua for more information.
 
-Installation
-============
+# Installation
 * Extract the extension folder to extensions/VariablesLua/
 * Add the following line to LocalSettings.php:
 
-	wfLoadExtension( 'VariablesLua' );
+```
+wfLoadExtension( 'VariablesLua' );
+```
 
-Dependencies
-============
+# Dependencies
 This extension requires Extension:Variables and Extension:Scribunto to be installed.
 
-Examples
-========
+# Examples
 This is how some example calls to the extension could look like in a Scribunto module
 ```lua
 local p = {} -- p stands for package
