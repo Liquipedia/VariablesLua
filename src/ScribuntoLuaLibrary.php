@@ -1,10 +1,11 @@
 <?php
 
-namespace Liquipedia\VariablesLua;
+namespace Liquipedia\Extension\VariablesLua;
 
 use ExtVariables;
+use Scribunto_LuaLibraryBase;
 
-class ScribuntoLuaLibrary extends \Scribunto_LuaLibraryBase {
+class ScribuntoLuaLibrary extends Scribunto_LuaLibraryBase {
 
 	public function register() {
 		$lib = [

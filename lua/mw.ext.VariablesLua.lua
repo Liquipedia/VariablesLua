@@ -43,7 +43,7 @@ function VariablesLua.varexists( name )
 	name = tostring( name )
     local exists = php.varexists( name )
 
-	return exists and exists ~= ""
+	return exists and exists ~= ''
 end
 
 function VariablesLua.setupInterface( options )

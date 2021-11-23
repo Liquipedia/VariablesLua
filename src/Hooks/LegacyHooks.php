@@ -1,12 +1,14 @@
 <?php
 
-namespace Liquipedia\VariablesLua;
+namespace Liquipedia\Extension\VariablesLua\Hooks;
 
-class Hooks {
+use Liquipedia\Extension\VariablesLua\ScribuntoLuaLibrary;
+
+class LegacyHooks {
 
 	/**
 	 * Register Lua Library
-	 * @param strin $engine
+	 * @param string $engine
 	 * @param array &$extraLibraries
 	 * @return array
 	 */
