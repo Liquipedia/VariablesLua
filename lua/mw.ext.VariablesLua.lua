@@ -41,8 +41,9 @@ end
 function VariablesLua.varexists( name )
 	libraryUtil.checkTypeMulti( 'varexists', 1, name, { 'string', 'number' } )
 	name = tostring( name )
+    local exists = php.varexists( name )
 
-	return php.varexists( name )
+	return exists and exists ~= ""
 end
 
 function VariablesLua.setupInterface( options )
