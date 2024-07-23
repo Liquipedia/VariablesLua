@@ -35,13 +35,25 @@ class ScribuntoLuaLibrary extends Scribunto_LuaLibraryBase {
 	public function fnVardefine() {
 		$params = func_get_args();
 		$parser = $this->getParser();
-		return [ ExtVariables::pf_vardefine( $parser, ...$params ) ];
+		if ( method_exists( 'ExtVariables', 'pfObj_vardefine' ) ) {
+			return [ ExtVariables::pfObj_vardefine(
+					$parser, $parser->getPreprocessor()->newFrame(), $params
+				) ];
+		} else {
+			return [ ExtVariables::pf_vardefine( $parser, ...$params ) ];
+		}
 	}
 
 	public function fnVardefineecho() {
 		$params = func_get_args();
 		$parser = $this->getParser();
-		return [ ExtVariables::pf_vardefineecho( $parser, ...$params ) ];
+		if ( method_exists( 'ExtVariables', 'pfObj_vardefineecho' ) ) {
+			return [ ExtVariables::pfObj_vardefineecho(
+					$parser, $parser->getPreprocessor()->newFrame(), $params
+				) ];
+		} else {
+			return [ ExtVariables::pf_vardefineecho( $parser, ...$params ) ];
+		}
 	}
 
 	public function fnVarexists() {
