@@ -7,6 +7,9 @@ use MediaWiki\Extension\Scribunto\Engines\LuaCommon\LibraryBase;
 
 class ScribuntoLuaLibrary extends LibraryBase {
 
+	/**
+	 * @inheritDoc
+	 */
 	public function register() {
 		$lib = [
 			'var' => [ $this, 'fnVar' ],
@@ -20,18 +23,27 @@ class ScribuntoLuaLibrary extends LibraryBase {
 		);
 	}
 
+	/**
+	 * @return array
+	 */
 	public function fnVar() {
 		$params = func_get_args();
 		$parser = $this->getParser();
 		return [ ExtVariables::pfObj_var( $parser, $parser->getPreprocessor()->newFrame(), $params ) ];
 	}
 
+	/**
+	 * @return array
+	 */
 	public function fnVarFinal() {
 		$params = func_get_args();
 		$parser = $this->getParser();
 		return [ ExtVariables::pf_var_final( $parser, ...$params ) ];
 	}
 
+	/**
+	 * @return array
+	 */
 	public function fnVardefine() {
 		$params = func_get_args();
 		$parser = $this->getParser();
@@ -44,6 +56,9 @@ class ScribuntoLuaLibrary extends LibraryBase {
 		}
 	}
 
+	/**
+	 * @return array
+	 */
 	public function fnVardefineecho() {
 		$params = func_get_args();
 		$parser = $this->getParser();
@@ -56,6 +71,9 @@ class ScribuntoLuaLibrary extends LibraryBase {
 		}
 	}
 
+	/**
+	 * @return array
+	 */
 	public function fnVarexists() {
 		$params = func_get_args();
 		$parser = $this->getParser();
