@@ -3,9 +3,9 @@
 namespace Liquipedia\Extension\VariablesLua;
 
 use ExtVariables;
-use Scribunto_LuaLibraryBase;
+use MediaWiki\Extension\Scribunto\Engines\LuaCommon\LibraryBase;
 
-class ScribuntoLuaLibrary extends Scribunto_LuaLibraryBase {
+class ScribuntoLuaLibrary extends LibraryBase {
 
 	public function register() {
 		$lib = [
